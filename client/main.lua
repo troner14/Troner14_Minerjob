@@ -163,7 +163,6 @@ Citizen.CreateThread(function()
 		SetEntityInvincible(MinerNPC, true)
 		FreezeEntityPosition(MinerNPC, true)
 		TaskStartScenarioInPlace(MinerNPC, "WORLD_HUMAN_SMOKING", 0, true);
-	spawnNewMarker1()
 	while true do
 		while newSpawnReady do
 			Citizen.Wait(4)
@@ -189,19 +188,19 @@ Citizen.CreateThread(function()
 			event_destination2 = Config.mining.MiningPoints2[random_destination2]
 			event_destination3 = Config.mining.MiningPoints3[random_destination3]
 
-			local pos = GetEntityCoords(GetPlayerPed(-1), false)
+			local pos = GetEntityCoords(PlayerPedId(), false)
 			local dpos = event_destination	
 			local dpos2 = event_destination2	
 			local dpos3 = event_destination3	
-			local delivery_point_distance = Vdist(dpos.x, dpos.y, dpos.z, pos.x, pos.y, pos.z)
-			local delivery_point_distance2 = Vdist(dpos2.x, dpos2.y, dpos2.z, pos.x, pos.y, pos.z)
-			local delivery_point_distance3 = Vdist(dpos3.x, dpos3.y, dpos3.z, pos.x, pos.y, pos.z)
+			local DPD1 = Vdist(dpos.x, dpos.y, dpos.z, pos.x, pos.y, pos.z)
+			local DPD2 = Vdist(dpos2.x, dpos2.y, dpos2.z, pos.x, pos.y, pos.z)
+			local DPD3 = Vdist(dpos3.x, dpos3.y, dpos3.z, pos.x, pos.y, pos.z)
 				
-			if delivery_point_distance < 500.0 then
+			if DPD1 < 500.0 then
 				DrawMarker(1, dpos.x, dpos.y, dpos.z,0, 0, 0, 0, 0, 0, 1.0, 1.0, 1.0, 0, 0, 255, 155, 0, 0, 2, 0, 0, 0, 0)
 				DrawMarker(1, dpos2.x, dpos2.y, dpos2.z,0, 0, 0, 0, 0, 0, 1.0, 1.0, 1.0, 0, 0, 255, 155, 0, 0, 2, 0, 0, 0, 0)
 				DrawMarker(1, dpos3.x, dpos3.y, dpos3.z,0, 0, 0, 0, 0, 0, 1.0, 1.0, 1.0, 0, 0, 255, 155, 0, 0, 2, 0, 0, 0, 0)
-				if delivery_point_distance < 1.5 then
+				if DPD1 < 1.5 then
 					if isMining == false then
 						DrawText3Ds(dpos.x, dpos.y, dpos.z+2, DTText, 0)
 							
@@ -210,6 +209,13 @@ Citizen.CreateThread(function()
 							if pickaxeCounter > 0 then
 								mining()
 								TriggerServerEvent("removePickaxe:minerJob")
+								if Config.EnableAntiE then
+									local random = math.random(1,3)
+									if random == 3 then
+										value = "marker1"
+										spawnNewMarker1(value)
+									end
+								end
 							else
 								if Config.notify == 1 then
 									exports['okokNotify']:Alert(
@@ -228,7 +234,7 @@ Citizen.CreateThread(function()
 								elseif Config.notify == 3 then 
 									TriggerEvent('renzu_notify:Notify','default','Mineria', text)
 								elseif Config.notify == 4 then
-									TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = text, style = { ['background-color'] = '#ffffff', ['color'] = '#000000' } })
+									TriggerEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = text, style = { ['background-color'] = '#ffffff', ['color'] = '#000000' } })
 								end
 							end
 								
@@ -236,7 +242,7 @@ Citizen.CreateThread(function()
 						
 
 					end
-				elseif delivery_point_distance2 < 1.5 then
+				elseif DPD2 < 1.5 then
 
 					if isMining == false then
 						DrawText3Ds(dpos2.x, dpos2.y, dpos2.z+2, DTText, 0)
@@ -246,6 +252,13 @@ Citizen.CreateThread(function()
 							if pickaxeCounter > 0 then
 								mining()
 								TriggerServerEvent("removePickaxe:minerJob")
+								if Config.EnableAntiE then
+									local random = math.random(1,3)
+									if random == 3 then
+										value = "marker2"
+										spawnNewMarker1(value)
+									end
+								end
 							else
 								if Config.notify == 1 then
 									exports['okokNotify']:Alert(
@@ -264,7 +277,7 @@ Citizen.CreateThread(function()
 								elseif Config.notify == 3 then 
 									TriggerEvent('renzu_notify:Notify','default','Mineria', text)
 								elseif Config.notify == 4 then
-									TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = text, style = { ['background-color'] = '#ffffff', ['color'] = '#000000' } })
+									TriggerEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = text, style = { ['background-color'] = '#ffffff', ['color'] = '#000000' } })
 								end
 							end
 								
@@ -273,7 +286,7 @@ Citizen.CreateThread(function()
 
 					end
 
-				elseif delivery_point_distance3 < 1.5 then
+				elseif DPD3 < 1.5 then
 
 					if isMining == false then
 						DrawText3Ds(dpos3.x, dpos3.y, dpos3.z+2, DTText, 0)
@@ -284,6 +297,13 @@ Citizen.CreateThread(function()
 							if pickaxeCounter > 0 then
 								mining()
 								TriggerServerEvent("removePickaxe:minerJob")
+								if Config.EnableAntiE then
+									local random = math.random(1,3)
+									if random == 3 then
+										value = "marker3"
+										spawnNewMarker1(value)
+									end
+								end
 							else
 								if Config.notify == 1 then
 									exports['okokNotify']:Alert(
@@ -302,10 +322,9 @@ Citizen.CreateThread(function()
 								elseif Config.notify == 3 then 
 									TriggerEvent('renzu_notify:Notify','default','Mineria', text)
 								elseif Config.notify == 4 then
-									TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = text, style = { ['background-color'] = '#ffffff', ['color'] = '#000000' } })
+									TriggerEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = text, style = { ['background-color'] = '#ffffff', ['color'] = '#000000' } })
 								end
-							end
-								
+							end	
 						end
 					end
 				end
@@ -318,7 +337,7 @@ end)
 --events--
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
-	Citizen.Wait(1000)
+	Citizen.Wait(10000)
   	PlayerData = xPlayer
 end)
 
@@ -329,7 +348,6 @@ end)
 
 RegisterNetEvent("pickaxeBroken:minerJob")
 AddEventHandler("pickaxeBroken:minerJob", function()
-	--TriggerEvent('notifications', "#29c501", "MINER", "Pickaxe broke")
 	local text = _U('PR')
 	if Config.notify == 1 then
 		exports['okokNotify']:Alert(
@@ -348,13 +366,13 @@ AddEventHandler("pickaxeBroken:minerJob", function()
 	elseif Config.notify == 3 then 
 		TriggerEvent('renzu_notify:Notify','default','Mineria', text)
 	elseif Config.notify == 4 then
-		TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = text, style = { ['background-color'] = '#ffffff', ['color'] = '#000000' } })
+		TriggerEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = text, style = { ['background-color'] = '#ffffff', ['color'] = '#000000' } })
 	end
 end)
 
 RegisterNetEvent("showReward:minerJob")
 AddEventHandler("showReward:minerJob", function(completReward, EmeraldCount, DiamondCount, ironCount, goldCount)
-	local text = _U('RW', completReward) --"Has ganado "..completReward.."€"
+	local text = _U('RW', completReward)
 	if Config.notify == 1 then
 		exports['okokNotify']:Alert(
        		"Mineria",
@@ -372,7 +390,7 @@ AddEventHandler("showReward:minerJob", function(completReward, EmeraldCount, Dia
 	elseif Config.notify == 3 then 
 		TriggerEvent('renzu_notify:Notify','default','Mineria', text)
 	elseif Config.notify == 4 then
-		TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = text, style = { ['background-color'] = '#ffffff', ['color'] = '#000000' } })
+		TriggerEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = text, style = { ['background-color'] = '#ffffff', ['color'] = '#000000' } })
 	end
 end)
 

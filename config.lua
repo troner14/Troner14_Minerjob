@@ -5,6 +5,7 @@ Config.logschanel = "Mina" -- This is to configure in the JD-logs channel to whi
 Config.enabledebug = false
 Config.Locale = 'es'
 Config.Version  = 1
+Config.EnableAntiE = true
 Config.Blip = {
     {title="Mina", colour=0, id=617, x=-593.95855712891, y=2091.75390625, z=131.71856689453},
 }
