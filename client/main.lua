@@ -142,11 +142,19 @@ Citizen.CreateThread(function()
 			end
 		end)
 	end
-	function spawnNewMarker1()
+	function spawnNewMarker1(value)
 		marker1spawnt = false
-		random_destination = math.random(1, #Config.mining.MiningPoints)
-		random_destination2 = math.random(1, #Config.mining.MiningPoints2)
-		random_destination3 = math.random(1, #Config.mining.MiningPoints3)
+		if value == "marker1" then
+			random_destination = math.random(1, #Config.mining.MiningPoints)
+		elseif value == "marker2" then
+			random_destination2 = math.random(1, #Config.mining.MiningPoints2)
+		elseif value == "marker3" then
+			random_destination3 = math.random(1, #Config.mining.MiningPoints3)
+		elseif value == nil or value == "" then
+			random_destination = math.random(1, #Config.mining.MiningPoints)
+			random_destination = math.random(1, #Config.mining.MiningPoints2)
+			random_destination = math.random(1, #Config.mining.MiningPoints3)
+		end
 		Citizen.Wait(1000)
 		marker1spawnt = true	
 	end
