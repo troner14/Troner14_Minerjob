@@ -1,69 +1,17 @@
-$(function() {
-    function display(bool) {
-        if (bool) {
-            $("#window").show();
-        } else {
-            $("#window").hide();
-        }
-    }
+function _0x3f2c() { var _0x311f8c = ['DiamondOres', 'stringify', '#DiamondOres', 'type', '#buyFlash', 'hide', '#window', '42NukrlM', '12kcjlJX', '#close', '#buyWater', 'http://Troner14_minerJob/buyPickAxe', '#ironOres', 'post', 'goldOres', '35272gKlrBY', 'http://Troner14_minerJob/buyFood', 'data', 'http://Troner14_minerJob/exit', 'status', '#buyFood', 'EmeraldOres', '190676uYivXV', '2512979UusWqO', '9VmwpLH', 'click', '#goldOres', 'text', 'ironOres', '#EmeraldOres', 'onkeyup', '1394245twkKKZ', '#sell', '17983306jhkxVN', 'http://Troner14_minerJob/buyWater', 'show', '4366510dCiKHf', '62SedePv', 'which', '4416248EBdOAF', 'addEventListener'];
+    _0x3f2c = function() { return _0x311f8c; }; return _0x3f2c(); }
 
-    display(false)
+function _0x1418(_0x267036, _0x414a4d) { var _0x3f2c70 = _0x3f2c(); return _0x1418 = function(_0x1418e5, _0x36e3b1) { _0x1418e5 = _0x1418e5 - 0x1a4; var _0xd9db4 = _0x3f2c70[_0x1418e5]; return _0xd9db4; }, _0x1418(_0x267036, _0x414a4d); }(function(_0x518055, _0x557b0e) { var _0x50057e = _0x1418,
+        _0x3370fc = _0x518055(); while (!![]) { try { var _0x4cfa0b = -parseInt(_0x50057e(0x1c0)) / 0x1 * (-parseInt(_0x50057e(0x1aa)) / 0x2) + parseInt(_0x50057e(0x1cb)) / 0x3 * (-parseInt(_0x50057e(0x1b1)) / 0x4) + parseInt(_0x50057e(0x1ba)) / 0x5 + -parseInt(_0x50057e(0x1cc)) / 0x6 * (parseInt(_0x50057e(0x1b2)) / 0x7) + parseInt(_0x50057e(0x1c2)) / 0x8 * (-parseInt(_0x50057e(0x1b3)) / 0x9) + -parseInt(_0x50057e(0x1bf)) / 0xa + parseInt(_0x50057e(0x1bc)) / 0xb; if (_0x4cfa0b === _0x557b0e) break;
+            else _0x3370fc['push'](_0x3370fc['shift']()); } catch (_0x4d9354) { _0x3370fc['push'](_0x3370fc['shift']()); } } }(_0x3f2c, 0x9a8fd), $(function() { var _0x278009 = _0x1418;
 
-    window.addEventListener('message', function(event) {
-        var item = event.data;
-        if (item.type === "ui") {
-            $("#DiamondOres").text(event.data.DiamondOres);
-            $("#EmeraldOres").text(event.data.EmeraldOres);
-            $("#goldOres").text(event.data.goldOres);
-            $("#ironOres").text(event.data.ironOres);
-            if (item.status == true) {
-                display(true)
-            } else {
-                display(false)
-            }
-        }
-    })
-
-
-
-
-    // if the person uses the escape key, it will exit the resource
-    document.onkeyup = function(data) {
-        if (data.which == 27) {
-            $.post('http://Troner14_minerJob/exit', JSON.stringify({}));
-            return
-        }
-    };
-    $("#close").click(function() {
-        $.post('http://Troner14_minerJob/exit', JSON.stringify({}));
-        return
-    })
-
-    $("#sell").click(function() {
-        $.post('http://Troner14_minerJob/sellResource', JSON.stringify({}));
-        return
-    })
-
-
-    $("#buyPickAxe").click(function() {
-        $.post('http://Troner14_minerJob/buyPickAxe', JSON.stringify({}));
-        return
-    })
-
-    $("#buyFood").click(function() {
-        $.post('http://Troner14_minerJob/buyFood', JSON.stringify({}));
-        return
-    })
-
-
-    $("#buyWater").click(function() {
-        $.post('http://Troner14_minerJob/buyWater', JSON.stringify({}));
-        return
-    })
-
-    $("#buyFlash").click(function() {
-        $.post('http://Troner14_minerJob/buyFlash', JSON.stringify({}));
-        return
-    })
-
-})
+    function _0xa94571(_0x8a84ee) { var _0x3a4d6f = _0x1418;
+        _0x8a84ee ? $('#window')[_0x3a4d6f(0x1be)]() : $(_0x3a4d6f(0x1ca))[_0x3a4d6f(0x1c9)](); }
+    _0xa94571(![]), window[_0x278009(0x1c3)]('message', function(_0x2154d7) { var _0x399ea6 = _0x278009,
+            _0x3eb725 = _0x2154d7[_0x399ea6(0x1ac)];
+        _0x3eb725[_0x399ea6(0x1c7)] === 'ui' && ($(_0x399ea6(0x1c6))[_0x399ea6(0x1b6)](_0x2154d7[_0x399ea6(0x1ac)][_0x399ea6(0x1c4)]), $(_0x399ea6(0x1b8))[_0x399ea6(0x1b6)](_0x2154d7[_0x399ea6(0x1ac)][_0x399ea6(0x1b0)]), $(_0x399ea6(0x1b5))[_0x399ea6(0x1b6)](_0x2154d7[_0x399ea6(0x1ac)][_0x399ea6(0x1a9)]), $(_0x399ea6(0x1a7))[_0x399ea6(0x1b6)](_0x2154d7[_0x399ea6(0x1ac)][_0x399ea6(0x1b7)]), _0x3eb725[_0x399ea6(0x1ae)] == !![] ? _0xa94571(!![]) : _0xa94571(![])); }), document[_0x278009(0x1b9)] = function(_0x11f2d2) { var _0x552927 = _0x278009; if (_0x11f2d2[_0x552927(0x1c1)] == 0x1b) { $[_0x552927(0x1a8)](_0x552927(0x1ad), JSON[_0x552927(0x1c5)]({})); return; } }, $(_0x278009(0x1a4))['click'](function() { var _0x70de9f = _0x278009;
+        $[_0x70de9f(0x1a8)](_0x70de9f(0x1ad), JSON['stringify']({})); return; }), $(_0x278009(0x1bb))[_0x278009(0x1b4)](function() { $['post']('http://Troner14_minerJob/sellResource', JSON['stringify']({})); return; }), $('#buyPickAxe')[_0x278009(0x1b4)](function() { var _0x23425e = _0x278009;
+        $[_0x23425e(0x1a8)](_0x23425e(0x1a6), JSON[_0x23425e(0x1c5)]({})); return; }), $(_0x278009(0x1af))[_0x278009(0x1b4)](function() { var _0x3cd2ad = _0x278009;
+        $[_0x3cd2ad(0x1a8)](_0x3cd2ad(0x1ab), JSON['stringify']({})); return; }), $(_0x278009(0x1a5))['click'](function() { var _0xf79d9 = _0x278009;
+        $[_0xf79d9(0x1a8)](_0xf79d9(0x1bd), JSON['stringify']({})); return; }), $(_0x278009(0x1c8))[_0x278009(0x1b4)](function() { var _0x44d43b = _0x278009;
+        $[_0x44d43b(0x1a8)]('http://Troner14_minerJob/buyFlash', JSON[_0x44d43b(0x1c5)]({})); return; }); }));

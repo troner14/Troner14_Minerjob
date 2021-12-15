@@ -7,6 +7,7 @@ local event_destination = nil
 local isMining = false
 local newSpawnReady = true
 local prop_active = false
+local refreshitems = false
 
 --shop--
 local shopCostMenu = 0
@@ -25,10 +26,11 @@ Citizen.CreateThread(function()
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 		Citizen.Wait(0)
 	end
-	Citizen.Wait(100)
-	while true do
+	--Citizen.Wait(100)
+	while refreshitems == false do
 		TriggerServerEvent("refreshItems:minerJob")
 		Citizen.Wait(10000)
+		refreshitems = true
 	end
 end)
 
@@ -61,7 +63,9 @@ Citizen.CreateThread(function()
 				DrawText3Ds(x,y,z+2, _U('T_MP'), 0)
 			end
 			if distance2 <= 1 and distance2 ~= -1 then
+				
 				if isMenuOn == false and prop_active == false  then
+					TriggerServerEvent("refreshItems:minerJob")
 					create_object()
 					prop_active = true
 					SetDisplay(not display)
@@ -70,6 +74,7 @@ Citizen.CreateThread(function()
 						exports['okokNotify']:Alert("Minero", "Props spawneado "..tostring(prop_active).."", 5000, 'success')
 					end
 				elseif isMenuOn == false and prop_active then
+					TriggerServerEvent("refreshItems:minerJob")
 					SetDisplay(not display)
 					isMenuOn = true
 					if Config.enabledebug then
@@ -136,7 +141,7 @@ Citizen.CreateThread(function()
 					Citizen.Wait(1000)
 					TriggerServerEvent("addItems:minerJob")
 					isMining = false
-						
+					TriggerServerEvent("refreshItems:minerJob")
 					break
 				end        
 			end
@@ -146,14 +151,26 @@ Citizen.CreateThread(function()
 		marker1spawnt = false
 		if value == "marker1" then
 			random_destination = math.random(1, #Config.mining.MiningPoints)
+			if Config.enabledebug then
+				print("canvio 1:"..random_destination)
+			end
 		elseif value == "marker2" then
 			random_destination2 = math.random(1, #Config.mining.MiningPoints2)
+			if Config.enabledebug then
+				print("canvio 2:"..random_destination2)
+			end
 		elseif value == "marker3" then
 			random_destination3 = math.random(1, #Config.mining.MiningPoints3)
+			if Config.enabledebug then
+				print("canvio 3:"..random_destination3)
+			end
 		elseif value == nil or value == "" then
 			random_destination = math.random(1, #Config.mining.MiningPoints)
-			random_destination = math.random(1, #Config.mining.MiningPoints2)
-			random_destination = math.random(1, #Config.mining.MiningPoints3)
+			random_destination2 = math.random(1, #Config.mining.MiningPoints2)
+			random_destination3 = math.random(1, #Config.mining.MiningPoints3)
+			if Config.enabledebug then
+				print("spawn inicial 1:"..random_destination.." 2:"..random_destination2.." 3:"..random_destination3)
+			end
 		end
 		Citizen.Wait(1000)
 		marker1spawnt = true	
@@ -219,9 +236,13 @@ Citizen.CreateThread(function()
 								TriggerServerEvent("removePickaxe:minerJob")
 								if Config.EnableAntiE then
 									local random = math.random(1,3)
-									if random == 3 then
+									local NumE = Config.RandomNumE
+									if random == NumE[1] or random == NumE[2] or random == NumE[3] then
 										value = "marker1"
 										spawnNewMarker1(value)
+									end
+									if Config.enabledebug then
+										print("valor"..random)
 									end
 								end
 							else
@@ -261,10 +282,14 @@ Citizen.CreateThread(function()
 								mining()
 								TriggerServerEvent("removePickaxe:minerJob")
 								if Config.EnableAntiE then
-									local random = math.random(1,3)
-									if random == 3 then
+									local random = math.random(Config.Randomnum[1],Config.Randomnum[2])
+									local NumE = Config.RandomNumE
+									if random == NumE[1] or random == NumE[2] or random == NumE[3] then
 										value = "marker2"
 										spawnNewMarker1(value)
+									end
+									if Config.enabledebug then
+										print("valor"..random)
 									end
 								end
 							else
@@ -307,9 +332,13 @@ Citizen.CreateThread(function()
 								TriggerServerEvent("removePickaxe:minerJob")
 								if Config.EnableAntiE then
 									local random = math.random(1,3)
-									if random == 3 then
+									local NumE = Config.RandomNumE
+									if random == NumE[1] or random == NumE[2] or random == NumE[3] then
 										value = "marker3"
 										spawnNewMarker1(value)
+									end
+									if Config.enabledebug then
+										print("valor"..random)
 									end
 								end
 							else
@@ -347,6 +376,7 @@ RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
 	Citizen.Wait(10000)
   	PlayerData = xPlayer
+	TriggerServerEvent("refreshItems:minerJob")
 end)
 
 RegisterNetEvent('esx:setJob')
@@ -402,6 +432,8 @@ AddEventHandler("showReward:minerJob", function(completReward, EmeraldCount, Dia
 	end
 end)
 
+
+
 RegisterNetEvent("refreshDiamond:minerJob")
 AddEventHandler("refreshDiamond:minerJob", function(DiamondCount)
 	DiamondOresCount = DiamondCount
@@ -455,12 +487,7 @@ RegisterNUICallback("exit", function(data)
 	isMenuOn = false
 end)
 
---text--
-function DisplayHelpText(str)
-	SetTextComponentFormat("STRING")
-	AddTextComponentString(str)
-	DisplayHelpTextFromStringLabel(0, 0, 1, -1)
-end
+
 
 function DrawText3Ds(x, y, z, text, shadow)
 	SetTextScale(0.35, 0.35)
@@ -481,7 +508,7 @@ end
 
 
 function create_object()
-	local object_model = "prop_air_lights_03a"
+	local object_model = Config.Ligjtsprop
 	local plyCoords = GetEntityCoords(PlayerPedId(), false)
     RequestModel(object_model)
     while not HasModelLoaded(object_model) do

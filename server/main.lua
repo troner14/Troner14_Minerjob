@@ -59,6 +59,19 @@ AddEventHandler("refreshItems:minerJob", function()
     TriggerClientEvent("refreshGold:minerJob", source, goldCount)
     TriggerClientEvent("refreshIron:minerJob", source, ironCount)
     TriggerClientEvent("refreshPickaxe:minerJob", source, pickaxeCount)
+    if Config.enablelogs then
+        text = _U('RIMJ',GetPlayerName(source),ironCount, goldCount ,DiamondCount ,EmeraldCount)
+        exports.JD_logs:createLog({
+            EmbedMessage = text,
+            color = "#FFFFFF",
+            player_id = source,
+            channel = Config.logschanel,
+            screenshot = false
+        })
+        if Config.enabledebug then
+            print(text)
+        end
+    end
 end)
 
 
@@ -84,7 +97,38 @@ AddEventHandler("sellResource:minerJob", function()
     local completReward = goldReward + ironReward + DiamondReward + EmeraldReward
 
     if EmeraldCount >= 0 and DiamondCount >= 0 and goldCount >= 0 and ironCount >= 0 then
-        if EmeraldCount > 0 then
+        if ironCount > 0 and goldCount > 0 and DiamondCount and EmeraldCount > 0 then
+            xPlayer.removeInventoryItem("gold", goldCount)
+            xPlayer.removeInventoryItem("iron", ironCount)
+            xPlayer.removeInventoryItem("Diamond", DiamondCount)
+            xPlayer.removeInventoryItem("Emerald", EmeraldCount)
+        elseif ironCount > 0 and goldCount > 0 and DiamondCount > 0 then
+            xPlayer.removeInventoryItem("gold", goldCount)
+            xPlayer.removeInventoryItem("iron", ironCount)
+            xPlayer.removeInventoryItem("Diamond", DiamondCount)
+        elseif ironCount > 0 and goldCount > 0 and EmeraldCount > 0 then
+            xPlayer.removeInventoryItem("gold", goldCount)
+            xPlayer.removeInventoryItem("iron", ironCount)
+            xPlayer.removeInventoryItem("Emerald", EmeraldCount)
+        elseif ironCount > 0 and DiamondCount > 0 then
+            xPlayer.removeInventoryItem("iron", ironCount)
+            xPlayer.removeInventoryItem("Diamond", DiamondCount)
+        elseif ironCount > 0 and goldCount > 0 then
+            xPlayer.removeInventoryItem("gold", goldCount)
+            xPlayer.removeInventoryItem("iron", ironCount)
+        elseif ironCount > 0 and EmeraldCount > 0 then
+            xPlayer.removeInventoryItem("iron", ironCount)
+            xPlayer.removeInventoryItem("Emerald", EmeraldCount)
+        elseif goldCount > 0 and DiamondCount > 0 then
+            xPlayer.removeInventoryItem("gold", goldCount)
+            xPlayer.removeInventoryItem("Diamond", DiamondCount)
+        elseif goldCount > 0 and EmeraldCount > 0 then
+            xPlayer.removeInventoryItem("gold", goldCount)
+            xPlayer.removeInventoryItem("Emerald", EmeraldCount)
+        elseif DiamondCount > 0 and EmeraldCount > 0 then
+            xPlayer.removeInventoryItem("Diamond", DiamondCount)
+            xPlayer.removeInventoryItem("Emerald", EmeraldCount)
+        elseif EmeraldCount > 0 then
             xPlayer.removeInventoryItem("Emerald", EmeraldCount)
         elseif DiamondCount > 0 then 
             xPlayer.removeInventoryItem("Diamond", DiamondCount)
@@ -109,7 +153,9 @@ AddEventHandler("addItems:minerJob", function()
     local xPlayer = ESX.GetPlayerFromId(_source)
 
     local randomItem = math.random(1,100)
-    print("Picar -->"..randomItem.."")
+    if Config.enabledebug then
+        print("Picar -->"..randomItem.."")
+    end
     
     
     local randomeIronCounter = math.random(Config.amount.Iron.min, Config.amount.Iron.max)
@@ -171,8 +217,9 @@ AddEventHandler("removePickaxe:minerJob", function()
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
     local randomDestroy = math.random(1,100)
-    
-    print("pico -->" ..randomDestroy.."")
+    if Config.enabledebug then
+        print("pico -->" ..randomDestroy.."")
+    end
     if randomDestroy < 80 then
         if Config.enablelogs then
             exports.JD_logs:createLog({
@@ -204,61 +251,29 @@ Citizen.CreateThread( function()
     while true do
         updatePath = "/troner14/Troner14-MinerJob-version" -- your git user/repo path
         resourceName = "Troner14-MinerJob-version ("..GetCurrentResourceName()..")" -- the resource name
-        discord = "https://cutt.ly/Dark_Leaks"
+        discord = "https://github.com/troner14/Troner14_Minerjob"
         
         function checkVersion(err,responseText, headers)
             curVersion = Config.Version -- make sure the "version" file actually exists in your resource root!
             
             if curVersion ~= responseText and tonumber(curVersion) < tonumber(responseText) then
                 print("\n###############################")
-                print("\n"..resourceName.." está desactualizado,\ndebería ser:"..responseText.."y es:"..curVersion.."\npor favor actualícelo desde "..discord)
+                print("\n"..resourceName.." está desactualizado,\ndebería ser:"..responseText.."y estas:"..curVersion.."\npor favor actualícelo desde "..discord)
                 print("\n###############################")
+                print('SCRIPT CON COPYRIGHT')
+                print('𝕋𝕣𝕠𝕟𝕖𝕣𝟙𝟜-𝕄𝕚𝕟𝕖𝕣𝕛𝕠𝕓 © 2021-2022 by Troner14 is licensed under CC BY-NC-ND 4.0 ')
             elseif tonumber(curVersion) > tonumber(responseText) then
                 print("De alguna manera te saltaste algunas versiones de "..resourceName.." o el git se desconectó, si está en línea, le aconsejo que actualice (¿o rebaje?)")
+                print('SCRIPT CON COPYRIGHT')
+                print('𝕋𝕣𝕠𝕟𝕖𝕣𝟙𝟜-𝕄𝕚𝕟𝕖𝕣𝕛𝕠𝕓 © 2021-2022 by Troner14 is licensed under CC BY-NC-ND 4.0 ')
             else
                 print("\n"..resourceName.." Estas en la version correcta")
+                print('SCRIPT CON COPYRIGHT')
+                print('𝕋𝕣𝕠𝕟𝕖𝕣𝟙𝟜-𝕄𝕚𝕟𝕖𝕣𝕛𝕠𝕓 © 2021-2022 by Troner14 is licensed under CC BY-NC-ND 4.0 ')
             end
         end
             
         PerformHttpRequest("https://raw.githubusercontent.com"..updatePath.."/master/version", checkVersion, "GET")
         Citizen.Wait(3600000)
     end   
-end)
-
-local rmOriginal = "Troner14_minerJob"
-AddEventHandler('TRONER14:onResourceStart', function(resourceName,curVersion,responseText)
-    
-    
-
-    if resourceName == rmOriginal then
-        print('--------------------------------------------------------------------------------------------------------------')
-        print('--------------------------------------------------------------------------------------------------------------')
-        print('El archivo tiene el nombre ' .. resourceName .. ' y coincide con el original. Gracias por no canviar el nombre')
-        print('--------------------------------------------------------------------------------------------------------------')
-        print('--------------------------------------------------------------------------------------------------------------')
-        print('SCRIPT CREADA POR TRONER14')
-        print('--------------------------------------------------------------------------------------------------------------')
-        print('--------------------------------------------------------------------------------------------------------------')
-        print('SCRIPT CON COPYRIGHT')
-        print('Troner14-MinerJob © 2021-2022 by Troner14 is licensed under CC BY-NC-ND 4.0 ')
-        print('--------------------------------------------------------------------------------------------------------------')
-        print('--------------------------------------------------------------------------------------------------------------')
-    else
-        print('--------------------------------------------------------------------------------------------------------------')
-        print('--------------------------------------------------------------------------------------------------------------')
-        print('El archivo tiene el nombre ' .. resourceName .. ' y no coincide con el original porfabor ponga el original el original es '..rmOriginal)
-        print('SCRIPT CREADA POR TRONER14')
-        print('--------------------------------------------------------------------------------------------------------------')
-        print('--------------------------------------------------------------------------------------------------------------')
-        print('SCRIPT CON COPYRIGHT')
-        print('𝕋𝕣𝕠𝕟𝕖𝕣𝟙𝟜-𝕄𝕚𝕟𝕖𝕣𝕛𝕠𝕓 © 2021-2022 by Troner14 is licensed under CC BY-NC-ND 4.0 ')
-        print('--------------------------------------------------------------------------------------------------------------')
-        print('--------------------------------------------------------------------------------------------------------------')
-    end
-end)
-  
-AddEventHandler('TRONER14:onResourceStop', function(resourceName)
-    if (GetCurrentResourceName() ~= resourceName) then
-        return resourceName
-    end
 end)
