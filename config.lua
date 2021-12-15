@@ -1,40 +1,45 @@
-Config = {}
+Config = {} -- don't touch
 Config.notify = 1 --1 = okoknotify \ 2 = pNotify \ 3 = renzuzu_notify \ 4 = mythic_notify
 Config.enablelogs = false --need JD-logs | 
 Config.logschanel = "Mina" -- This is to configure in the JD-logs channel to which the channel that you put has to be in the JD config. Don't put the Webhook !!
-Config.enabledebug = false
-Config.Locale = 'es'
-Config.Version  = 1
-Config.EnableAntiE = true
+Config.enabledebug = false -- prints in console
+Config.Locale = 'es' --locale
+Config.Version  = 1.2 -- version don't touch
+Config.EnableAntiE = true --If it is active it will catch a random number and if that number comes out when itching, the points will move
+--Si está activo atrapará un número aleatorio y si ese número sale cuando pica, los puntos se moverán
 Config.Blip = {
     {title="Mina", colour=0, id=617, x=-593.95855712891, y=2091.75390625, z=131.71856689453},
 }
-Config.prices = {
+Config.Randomnum = {1, 10}   --value related to Config.EnableAntiE
+Config.RandomNumE= {3, 5, 9} --value related to Config.EnableAntiE
+Config.prices = { --price
     Iron = {
-        min = 100,
-        max = 500,
+        min = 100,--min price/precio minimo
+        max = 250,--max price/precio maximo
     },
     Gold = {
-        min = 600,
-        max = 2500,
+        min = 300,
+        max = 550,
     },
     Diamond = {
-        min = 2600,
-        max = 4000,
+        min = 700,
+        max = 1200,
     },
     Emerald = {
-        min = 4200,
-        max = 6500,
+        min = 1400,
+        max = 1700,
     },
-    costpickaxe = 500,
-    costfood = 10,
-    costwater = 10,
-    costFlash = 500,
+    costpickaxe = 500,--price of items/precio de items
+    costfood = 50,--price of items/precio de items
+    costwater = 50,--price of items/precio de items
+    costFlash = 500,--price of items/precio de items
 }
-Config.Marker = {
+Config.Marker = { --this is a relative point to catch the zone/esto es un punto relativo para pillar la zona
     {x = -601.07, y = 2093.02, z = 131.23},
 }
 Config.amount = {
+    --variables that can be given when chopping each material
+    --variables que te puede dar al picar de cada material
     Iron = {
         min = 1,
         max = 25,
@@ -52,7 +57,7 @@ Config.amount = {
         max = 5,
     },
 }
-Config.mining = {
+Config.mining = {-- points to mining/puntos de mineria
     MiningPoints = {
         {x = -587.55499267578, y = 2059.1745605469, z = 129.6190032959},
         {x = -588.81, y = 2050.28, z = 129.0100},
@@ -75,11 +80,11 @@ Config.mining = {
     }
 }
 
-Config.NPCHash			    = 349680864 	
+Config.NPCHash			    = 349680864 --don't touch /No tocar	
 
-Config.RefreshMarkerTimer   = 180000
-
-Config.lights = {
+Config.RefreshMarkerTimer   = 180000 --Refresh time don't touch/tiempo de refresco no tocar
+Config.Ligjtsprop = "prop_air_lights_03a" --prop to spawn in the mining don't touch/ el nombre del prop no tocar
+Config.lights = { --locations to spawn de prop/ localicacion de las luces donde spawnean
     {x = -594.95, y = 2080.37, z = 131.62},
     {x = -592.29, y = 2080.86, z = 131.62},
     {x = -594.26, y = 2077.79, z = 131.62},

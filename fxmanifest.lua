@@ -30,7 +30,3 @@ files({
     'html/index.css',
     'html/items/*.png',
 })
-
-escrow_ignore {
-	'config.lua',
-}
