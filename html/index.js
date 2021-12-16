@@ -1,17 +1,59 @@
-function _0x3f2c() { var _0x311f8c = ['DiamondOres', 'stringify', '#DiamondOres', 'type', '#buyFlash', 'hide', '#window', '42NukrlM', '12kcjlJX', '#close', '#buyWater', 'http://Troner14_minerJob/buyPickAxe', '#ironOres', 'post', 'goldOres', '35272gKlrBY', 'http://Troner14_minerJob/buyFood', 'data', 'http://Troner14_minerJob/exit', 'status', '#buyFood', 'EmeraldOres', '190676uYivXV', '2512979UusWqO', '9VmwpLH', 'click', '#goldOres', 'text', 'ironOres', '#EmeraldOres', 'onkeyup', '1394245twkKKZ', '#sell', '17983306jhkxVN', 'http://Troner14_minerJob/buyWater', 'show', '4366510dCiKHf', '62SedePv', 'which', '4416248EBdOAF', 'addEventListener'];
-    _0x3f2c = function() { return _0x311f8c; }; return _0x3f2c(); }
+var _$_69ff = ["\x73\x68\x6F\x77", "\x23\x77\x69\x6E\x64\x6F\x77", "\x68\x69\x64\x65", "\x6D\x65\x73\x73\x61\x67\x65", "\x64\x61\x74\x61", "\x74\x79\x70\x65", "\x75\x69", "\x44\x69\x61\x6D\x6F\x6E\x64\x4F\x72\x65\x73", "\x74\x65\x78\x74", "\x23\x44\x69\x61\x6D\x6F\x6E\x64\x4F\x72\x65\x73", "\x45\x6D\x65\x72\x61\x6C\x64\x4F\x72\x65\x73", "\x23\x45\x6D\x65\x72\x61\x6C\x64\x4F\x72\x65\x73", "\x67\x6F\x6C\x64\x4F\x72\x65\x73", "\x23\x67\x6F\x6C\x64\x4F\x72\x65\x73", "\x69\x72\x6F\x6E\x4F\x72\x65\x73", "\x23\x69\x72\x6F\x6E\x4F\x72\x65\x73", "\x73\x74\x61\x74\x75\x73", "\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72", "\x6F\x6E\x6B\x65\x79\x75\x70", "\x77\x68\x69\x63\x68", "\x68\x74\x74\x70\x3A\x2F\x2F\x54\x72\x6F\x6E\x65\x72\x31\x34\x5F\x6D\x69\x6E\x65\x72\x4A\x6F\x62\x2F\x65\x78\x69\x74", "\x73\x74\x72\x69\x6E\x67\x69\x66\x79", "\x70\x6F\x73\x74", "\x63\x6C\x69\x63\x6B", "\x23\x63\x6C\x6F\x73\x65", "\x68\x74\x74\x70\x3A\x2F\x2F\x54\x72\x6F\x6E\x65\x72\x31\x34\x5F\x6D\x69\x6E\x65\x72\x4A\x6F\x62\x2F\x73\x65\x6C\x6C\x52\x65\x73\x6F\x75\x72\x63\x65", "\x23\x73\x65\x6C\x6C", "\x68\x74\x74\x70\x3A\x2F\x2F\x54\x72\x6F\x6E\x65\x72\x31\x34\x5F\x6D\x69\x6E\x65\x72\x4A\x6F\x62\x2F\x62\x75\x79\x50\x69\x63\x6B\x41\x78\x65", "\x23\x62\x75\x79\x50\x69\x63\x6B\x41\x78\x65", "\x68\x74\x74\x70\x3A\x2F\x2F\x54\x72\x6F\x6E\x65\x72\x31\x34\x5F\x6D\x69\x6E\x65\x72\x4A\x6F\x62\x2F\x62\x75\x79\x46\x6F\x6F\x64", "\x23\x62\x75\x79\x46\x6F\x6F\x64", "\x68\x74\x74\x70\x3A\x2F\x2F\x54\x72\x6F\x6E\x65\x72\x31\x34\x5F\x6D\x69\x6E\x65\x72\x4A\x6F\x62\x2F\x62\x75\x79\x57\x61\x74\x65\x72", "\x23\x62\x75\x79\x57\x61\x74\x65\x72", "\x68\x74\x74\x70\x3A\x2F\x2F\x54\x72\x6F\x6E\x65\x72\x31\x34\x5F\x6D\x69\x6E\x65\x72\x4A\x6F\x62\x2F\x62\x75\x79\x46\x6C\x61\x73\x68\x6C\x69\x67\x68\x74", "\x23\x62\x75\x79\x46\x6C\x61\x73\x68\x6C\x69\x67\x68\x74"];
+$(function() {
+    function _0x24A9A(_0x24BCA) {
+        if (_0x24BCA) {
+            $(_$_69ff[1])[_$_69ff[0]]()
+        } else {
+            $(_$_69ff[1])[_$_69ff[2]]()
+        }
 
-function _0x1418(_0x267036, _0x414a4d) { var _0x3f2c70 = _0x3f2c(); return _0x1418 = function(_0x1418e5, _0x36e3b1) { _0x1418e5 = _0x1418e5 - 0x1a4; var _0xd9db4 = _0x3f2c70[_0x1418e5]; return _0xd9db4; }, _0x1418(_0x267036, _0x414a4d); }(function(_0x518055, _0x557b0e) { var _0x50057e = _0x1418,
-        _0x3370fc = _0x518055(); while (!![]) { try { var _0x4cfa0b = -parseInt(_0x50057e(0x1c0)) / 0x1 * (-parseInt(_0x50057e(0x1aa)) / 0x2) + parseInt(_0x50057e(0x1cb)) / 0x3 * (-parseInt(_0x50057e(0x1b1)) / 0x4) + parseInt(_0x50057e(0x1ba)) / 0x5 + -parseInt(_0x50057e(0x1cc)) / 0x6 * (parseInt(_0x50057e(0x1b2)) / 0x7) + parseInt(_0x50057e(0x1c2)) / 0x8 * (-parseInt(_0x50057e(0x1b3)) / 0x9) + -parseInt(_0x50057e(0x1bf)) / 0xa + parseInt(_0x50057e(0x1bc)) / 0xb; if (_0x4cfa0b === _0x557b0e) break;
-            else _0x3370fc['push'](_0x3370fc['shift']()); } catch (_0x4d9354) { _0x3370fc['push'](_0x3370fc['shift']()); } } }(_0x3f2c, 0x9a8fd), $(function() { var _0x278009 = _0x1418;
+    }
+    _0x24A9A(false);
+    window[_$_69ff[17]](_$_69ff[3], function(_0x24AE6) {
+        var _0x24B32 = _0x24AE6[_$_69ff[4]]; //12
+        if (_0x24B32[_$_69ff[5]] === _$_69ff[6]) {
+            $(_$_69ff[9])[_$_69ff[8]](_0x24AE6[_$_69ff[4]][_$_69ff[7]]);
+            $(_$_69ff[11])[_$_69ff[8]](_0x24AE6[_$_69ff[4]][_$_69ff[10]]);
+            $(_$_69ff[13])[_$_69ff[8]](_0x24AE6[_$_69ff[4]][_$_69ff[12]]);
+            $(_$_69ff[15])[_$_69ff[8]](_0x24AE6[_$_69ff[4]][_$_69ff[14]]);
+            if (_0x24B32[_$_69ff[16]] == true) {
+                _0x24A9A(true)
+            } else {
+                _0x24A9A(false)
+            }
 
-    function _0xa94571(_0x8a84ee) { var _0x3a4d6f = _0x1418;
-        _0x8a84ee ? $('#window')[_0x3a4d6f(0x1be)]() : $(_0x3a4d6f(0x1ca))[_0x3a4d6f(0x1c9)](); }
-    _0xa94571(![]), window[_0x278009(0x1c3)]('message', function(_0x2154d7) { var _0x399ea6 = _0x278009,
-            _0x3eb725 = _0x2154d7[_0x399ea6(0x1ac)];
-        _0x3eb725[_0x399ea6(0x1c7)] === 'ui' && ($(_0x399ea6(0x1c6))[_0x399ea6(0x1b6)](_0x2154d7[_0x399ea6(0x1ac)][_0x399ea6(0x1c4)]), $(_0x399ea6(0x1b8))[_0x399ea6(0x1b6)](_0x2154d7[_0x399ea6(0x1ac)][_0x399ea6(0x1b0)]), $(_0x399ea6(0x1b5))[_0x399ea6(0x1b6)](_0x2154d7[_0x399ea6(0x1ac)][_0x399ea6(0x1a9)]), $(_0x399ea6(0x1a7))[_0x399ea6(0x1b6)](_0x2154d7[_0x399ea6(0x1ac)][_0x399ea6(0x1b7)]), _0x3eb725[_0x399ea6(0x1ae)] == !![] ? _0xa94571(!![]) : _0xa94571(![])); }), document[_0x278009(0x1b9)] = function(_0x11f2d2) { var _0x552927 = _0x278009; if (_0x11f2d2[_0x552927(0x1c1)] == 0x1b) { $[_0x552927(0x1a8)](_0x552927(0x1ad), JSON[_0x552927(0x1c5)]({})); return; } }, $(_0x278009(0x1a4))['click'](function() { var _0x70de9f = _0x278009;
-        $[_0x70de9f(0x1a8)](_0x70de9f(0x1ad), JSON['stringify']({})); return; }), $(_0x278009(0x1bb))[_0x278009(0x1b4)](function() { $['post']('http://Troner14_minerJob/sellResource', JSON['stringify']({})); return; }), $('#buyPickAxe')[_0x278009(0x1b4)](function() { var _0x23425e = _0x278009;
-        $[_0x23425e(0x1a8)](_0x23425e(0x1a6), JSON[_0x23425e(0x1c5)]({})); return; }), $(_0x278009(0x1af))[_0x278009(0x1b4)](function() { var _0x3cd2ad = _0x278009;
-        $[_0x3cd2ad(0x1a8)](_0x3cd2ad(0x1ab), JSON['stringify']({})); return; }), $(_0x278009(0x1a5))['click'](function() { var _0xf79d9 = _0x278009;
-        $[_0xf79d9(0x1a8)](_0xf79d9(0x1bd), JSON['stringify']({})); return; }), $(_0x278009(0x1c8))[_0x278009(0x1b4)](function() { var _0x44d43b = _0x278009;
-        $[_0x44d43b(0x1a8)]('http://Troner14_minerJob/buyFlash', JSON[_0x44d43b(0x1c5)]({})); return; }); }));
+        }
+
+    });
+    document[_$_69ff[18]] = function(_0x24B7E) {
+        if (_0x24B7E[_$_69ff[19]] == 27) {
+            $[_$_69ff[22]](_$_69ff[20], JSON[_$_69ff[21]]({}));
+            return
+        }
+
+    };
+    $(_$_69ff[24])[_$_69ff[23]](function() {
+        $[_$_69ff[22]](_$_69ff[20], JSON[_$_69ff[21]]({}));
+        return
+    });
+    $(_$_69ff[26])[_$_69ff[23]](function() {
+        $[_$_69ff[22]](_$_69ff[25], JSON[_$_69ff[21]]({}));
+        return
+    });
+    $(_$_69ff[28])[_$_69ff[23]](function() {
+        $[_$_69ff[22]](_$_69ff[27], JSON[_$_69ff[21]]({}));
+        return
+    });
+    $(_$_69ff[30])[_$_69ff[23]](function() {
+        $[_$_69ff[22]](_$_69ff[29], JSON[_$_69ff[21]]({}));
+        return
+    });
+    $(_$_69ff[32])[_$_69ff[23]](function() {
+        $[_$_69ff[22]](_$_69ff[31], JSON[_$_69ff[21]]({}));
+        return
+    });
+    $(_$_69ff[34])[_$_69ff[23]](function() {
+        $[_$_69ff[22]](_$_69ff[33], JSON[_$_69ff[21]]({}));
+        return
+    })
+})
